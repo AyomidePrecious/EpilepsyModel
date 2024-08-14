@@ -26,14 +26,12 @@ def epilepsy_prediction(input_data, loaded_model):
             return 'The records do not indicate a likelihood of epilepsy'
     except Exception as e:
         return f"Error during prediction: {e}"
-
 def main():
     # Title of the web app
     st.title('Epilepsy Prediction Web App')
 
     # Load the model
-     model_path =r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav"
-  
+    model_path = r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav"
     try:
         with open(model_path, 'rb') as file:  
             loaded_model = pickle.load(file)
@@ -41,6 +39,8 @@ def main():
     except Exception as e:
         st.error(f"Error loading model: {e}")
         loaded_model = None
+
+
 
     # Getting the input data from the user
     try:
