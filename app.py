@@ -32,7 +32,7 @@ def main():
     st.title('Epilepsy Prediction Web App')
 
     # Load the model
-    model_path = r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav"
+    model_path = r'C:\Users\turningpointKS\Documents\New folder\epilepsy.sav'
   
     try:
         with open(model_path, 'rb') as file:  
