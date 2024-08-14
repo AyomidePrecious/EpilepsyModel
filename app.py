@@ -31,7 +31,8 @@ def main():
     st.title('Epilepsy Prediction Web App')
 
     # Load the model
-    model_path = r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav"  # Relative path
+    
+    model_path = 'epilepsy.sav'  # Relative path
     try:
         with open(model_path, 'rb') as file:  
             loaded_model = pickle.load(file)
