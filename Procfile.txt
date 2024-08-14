@@ -1,1 +1,1 @@
-web: streamlit run Epilepsy_Detection.py
+web: streamlit run app.py
