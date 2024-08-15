@@ -34,6 +34,7 @@ def main():
     # File uploader for the model
     uploaded_file = st.file_uploader("Upload your model file (.sav)", type="sav")
 
+    loaded_model = None
     if uploaded_file:
         try:
             loaded_model = pickle.load(uploaded_file)
@@ -71,7 +72,7 @@ def main():
         # Check if all fields have valid inputs
         if None in input_data:
             st.error("Please enter all values.")
-        elif 'loaded_model' not in locals():
+        elif loaded_model is None:
             st.error("Model not loaded. Cannot make predictions.")
         else:
             # Predict and display result
@@ -80,4 +81,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
