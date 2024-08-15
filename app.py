@@ -31,8 +31,6 @@ def main():
     # Title of the web app
     st.title('Epilepsy Prediction Web App')
 
-    # File uploader for the model
-    uploaded_file = st.file_uploader("Upload your model file (.sav)", type="sav")
 
     if uploaded_file:
         try:
