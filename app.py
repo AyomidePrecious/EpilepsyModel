@@ -32,7 +32,7 @@ def main():
 
     # Load the model
     
-    model_path = "C:\Users\turningpointKS\Documents\New folder\epilepsy.sav" # Relative path
+    model_path = r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav" # Relative path
     try:
         with open(model_path, 'rb') as file:  
             loaded_model = pickle.load(file)
