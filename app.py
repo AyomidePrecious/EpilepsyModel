@@ -31,16 +31,16 @@ def main():
     # Title of the web app
     st.title('Epilepsy Prediction Web App')
 
-    # Load the model 
-    model_path =r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav"
-  
-    try:
-        with open(model_path, 'rb') as file:  
-            loaded_model = pickle.load(file)
-        st.write("Model loaded successfully")
-    except Exception as e:
-        st.error(f"Error loading model: {e}")
-        loaded_model = None
+    # Upload the model 
+    uploaded_file = st.file_uploader("Upload a .sav model file", type=["sav"])
+    loaded_model = None
+
+    if uploaded_file is not None:
+        try:
+            loaded_model = pickle.load(uploaded_file)
+            st.write("Model loaded successfully")
+        except Exception as e:
+            st.error(f"Error loading model: {e}")
 
     # Getting the input data from the user
     try:
@@ -91,3 +91,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
