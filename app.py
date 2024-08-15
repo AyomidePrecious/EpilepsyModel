@@ -4,42 +4,56 @@ Created on Tue Aug 13 14:01:52 2024
 
 @author: turningpointKS
 """
-import numpy as np
-import pickle
-import streamlit as st
+#import numpy as np
+#import pickle
+#import streamlit as st
 
-def epilepsy_prediction(input_data, loaded_model):
+#def epilepsy_prediction(input_data, loaded_model):
     # Convert input_data to numpy array
-    input_data_as_numpy_array = np.asarray(input_data)
+    #input_data_as_numpy_array = np.asarray(input_data)
 
     # Reshape the array for a single instance prediction
-    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    #nput_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
 
-    try:
+    #try:
         # Make prediction
-        prediction = loaded_model.predict(input_data_reshaped)
+        #prediction = loaded_model.predict(input_data_reshaped)
         # Return prediction result
-        if prediction[0] == 1:
-            return 'The records indicate a likelihood of epilepsy'
-        else:
-            return 'The records do not indicate a likelihood of epilepsy'
-    except Exception as e:
-        return f"Error during prediction: {e}"
+        #if prediction[0] == 1:
+           # return 'The records indicate a likelihood of epilepsy'
+        #else:
+           # return 'The records do not indicate a likelihood of epilepsy'
+    #except Exception as e:
+       # return f"Error during prediction: {e}"
 
 def main():
     # Title of the web app
     st.title('Epilepsy Prediction Web App')
+import pickle
+import streamlit as st
+
+model_path = 'epilepsy.sav'
+
+try:
+    with open('epilepsy.sav', 'rb') as file:
+        epilepsy = pickle.load(file)
+except FileNotFoundError:
+    st.error(f"File not found: {model_path}")
+except ModuleNotFoundError as e:
+    st.error(f"Missing module: {e}")
+except Exception as e:
+    st.error(f"An unexpected error occurred: {e}")
 
     # Load the model
-    epilepsy = pickle.load(open('epilepsy.sav', 'rb'))
+    #epilepsy = pickle.load(open('epilepsy.sav', 'rb'))
     #model_path = r"C:\Users\turningpointKS\Documents\New folder\epilepsy.sav" # Relative path
-    try:
-        with open(model_path, 'rb') as file:  
-            loaded_model = pickle.load(file)
-        st.write("Model loaded successfully")
-    except Exception as e:
-        st.error(f"Error loading model: {e}")
-        loaded_model = None
+    #try:
+       # with open(model_path, 'rb') as file:  
+           # loaded_model = pickle.load(file)
+        #st.write("Model loaded successfully")
+   # except Exception as e:
+       # st.error(f"Error loading model: {e}")
+        #loaded_model = None
 
     # Getting the input data from the user
     try:
